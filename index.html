@@ -49,7 +49,7 @@
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+        apiUrl = `https://api.openweathermap.org/data/3.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
         fetchWeatherData(apiUrl);
       }, error => {
         console.error('Error getting location:', error);
@@ -57,7 +57,7 @@
       });
     } else {
       // Use user-inputted location
-      apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}&units=metric`;
+      apiUrl = `https://api.openweathermap.org/data/3.5/weather?q=${locationInput}&appid=${apiKey}&units=metric`;
       fetchWeatherData(apiUrl);
     }
   }
