@@ -38,7 +38,7 @@
 <script>
   function getWeather() {
     const locationInput = document.getElementById('location-input').value;
-    const apiKey = 'YOUR_API_KEY'; // Replace with your API key from Weatherstack
+    const apiKey = 'YOUR_API_KEY'; // Replace with your API key from OpenWeatherMap
     let apiUrl = '';
 
     if (locationInput.trim() === '') {
@@ -46,7 +46,7 @@
       navigator.geolocation.getCurrentPosition(position => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        apiUrl = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${latitude},${longitude}`;
+        apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
         fetchWeatherData(apiUrl);
       }, error => {
         console.error('Error getting location:', error);
@@ -54,7 +54,7 @@
       });
     } else {
       // Use user-inputted location
-      apiUrl = `http://api.weatherstack.com/current?access_key=${apiKey}&query=${locationInput}`;
+      apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}&units=metric`;
       fetchWeatherData(apiUrl);
     }
   }
@@ -78,9 +78,9 @@
 
   function displayWeatherData(data) {
     const weatherInfo = document.getElementById('weather-info');
-    const cityName = data.location.name;
-    const temperature = data.current.temperature;
-    const weatherDescription = data.current.weather_descriptions[0];
+    const cityName = data.name;
+    const temperature = data.main.temp;
+    const weatherDescription = data.weather[0].description;
 
     weatherInfo.innerHTML = `
       <h2>${cityName}</h2>
