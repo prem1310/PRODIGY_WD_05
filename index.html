@@ -25,12 +25,16 @@
     left: 0;
     width: 100%;
   }
+  .Button{
+    border-radius:10px;
+    color:rgb(100,200,210);
+  }
 </style>
 </head>
 <body>
 <h1>Weather App</h1>
 <input type="text" id="location-input" placeholder="Enter location">
-<button onclick="getWeather()">Get Weather</button>
+<button onclick="getWeather()" class="Button">Get Weather</button>
 <div id="weather-info"></div>
 <footer>
   &copy; Copyright All rights reserved by prem vishwakarma
