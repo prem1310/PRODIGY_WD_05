@@ -28,12 +28,18 @@
   .Button{
     border-radius:10px;
     color:black;
-    background-img: url('https://www.istockphoto.com/vector/abstract-beautiful-defocused-blurred-motion-gradient-vibrant-rainbow-colors-gm1287443988-383655285');
+    background-image: url("https://www.istockphoto.com/vector/abstract-beautiful-defocused-blurred-motion-gradient-vibrant-rainbow-colors-gm1287443988-383655285");
+    background-color:#cccccc;
+  }
+  .Bar{
+    background-color:black;
+    width:100%;
+    hight:40px;
   }
 </style>
 </head>
 <body>
-<h1>Weather App</h1>
+<h1 style="color:#009933;">Weather App<span class="Bar"></span></h1>
 <input type="text" id="location-input" placeholder="Enter location">
 <button onclick="getWeather()" class="Button">Get Weather</button>
 <div id="weather-info"></div>
